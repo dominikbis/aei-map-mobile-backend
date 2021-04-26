@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace aei_map_mobile_backend
+namespace AEIMapMobile.WebApi
 {
     public class Program
     {

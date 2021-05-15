@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace AEIMapMobile.DAL.Entities
 {
-    public class Floor : Area
+    public class Area
     {
-        public List<Room> Rooms { get; set; }
+        public int Id { get; set; }
+        public int Number { get; set; }
     }
 }

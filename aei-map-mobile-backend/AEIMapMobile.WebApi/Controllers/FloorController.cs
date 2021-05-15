@@ -27,5 +27,13 @@ namespace AEIMapMobile.WebApi.Controllers
             var result = await floorService.GetFloorByIdAsync(id);
             return Ok(result);
         }
+
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<AreaDto>))]
+        public async Task<IActionResult> GetFloorIdsAndNumbersAsync()
+        {
+            var result = await floorService.GetAllFloorIdsAndNumbersAsync();
+            return Ok(result);
+        }
     }
 }

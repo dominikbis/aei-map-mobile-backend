@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace AEIMapMobile.Services.Interfaces
 {
-    public interface IFloorService
+    public interface IFilteredRoomService
     {
-        public Task<FloorDto> GetFloorByIdAsync(int id);
-        public Task<IEnumerable<AreaDto>> GetAllFloorIdsAndNumbersAsync();
+        public Task<IEnumerable<AreaDto>> GetFilteredRoomsAsync(IEnumerable<int> filterIds);
     }
 }

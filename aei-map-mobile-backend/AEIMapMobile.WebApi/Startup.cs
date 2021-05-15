@@ -42,7 +42,9 @@ namespace AEIMapMobile.WebApi
 
             //services
             services.AddScoped<IFloorService, FloorService>()
-                .AddScoped<IRoomTypeService, RoomTypeService>();
+                .AddScoped<IRoomTypeService, RoomTypeService>()
+                .AddScoped<IFilterService, FilterService>()
+                .AddScoped<IFilteredRoomService, FilteredRoomService>();
 
             // HttpContextAccessor
             services.AddHttpContextAccessor();

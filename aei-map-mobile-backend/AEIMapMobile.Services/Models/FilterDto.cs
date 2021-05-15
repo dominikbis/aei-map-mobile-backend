@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace AEIMapMobile.Services.Models
 {
-    public class FloorDto : AreaDto
+    public class FilterDto
     {
-        public List<RoomDto> Rooms { get; set; }
-        public List<PointDto> Path { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public List<FilterValueDto> PossibleValues { get; set; }
     }
 }

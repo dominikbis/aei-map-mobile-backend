@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace AEIMapMobile.DAL.Entities
 {
-    public class Room
+    public class Room : Area
     {
-        public int Id { get; set; }
         public string Name { get; set; }
-        public int Number { get; set; }
         public List<RoomType> Types { get; set; }
         public List<Point> Points { get; set; }
     }

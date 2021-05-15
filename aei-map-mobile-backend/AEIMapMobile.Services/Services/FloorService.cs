@@ -95,5 +95,21 @@ namespace AEIMapMobile.Services.Services
 
             return model;
         }
+
+        public async Task<IEnumerable<AreaDto>> GetAllFloorIdsAndNumbersAsync()
+        {
+            return new List<AreaDto>
+            {
+                new AreaDto { Id = 1, Number = 1 },
+                new AreaDto { Id = 2, Number = 2 },
+                new AreaDto { Id = 3, Number = 3 },
+                new AreaDto { Id = 4, Number = 4 },
+                new AreaDto { Id = 5, Number = 5 },
+                new AreaDto { Id = 6, Number = 6 },
+                new AreaDto { Id = 7, Number = 7 },
+                new AreaDto { Id = 8, Number = 8 },
+                new AreaDto { Id = 9, Number = 9 },
+            };
+        }
     }
 }

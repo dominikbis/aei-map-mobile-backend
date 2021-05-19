@@ -9,7 +9,7 @@ namespace AEIMapMobile.Services.Models
     public class RoomDto : AreaDto
     {
         public string Name { get; set; }
-        public List<int> Types { get; set; }
-        public List<PointDto> Points { get; set; }
+        public IEnumerable<int> FilterValueIds { get; set; }
+        public IEnumerable<PointDto> Points { get; set; }
     }
 }

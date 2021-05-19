@@ -24,7 +24,7 @@ namespace aei_map_mobile_backend.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<FilterDto>))]
         public async Task<IActionResult> GetAllFiltersAsync()
         {
-            var result = await filterService.GetAllFiltersAsync();
+            var result = await filterService.GetAllWithDetailsAsync();
             return Ok(result);
         }
     }

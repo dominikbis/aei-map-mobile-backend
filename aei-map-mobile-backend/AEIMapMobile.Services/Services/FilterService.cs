@@ -1,5 +1,7 @@
-﻿using AEIMapMobile.Services.Interfaces;
+﻿using AEIMapMobile.DAL.Interfaces;
+using AEIMapMobile.Services.Interfaces;
 using AEIMapMobile.Services.Models;
+using AutoMapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,32 +12,19 @@ namespace AEIMapMobile.Services.Services
 {
     public class FilterService : IFilterService
     {
-        public async Task<IEnumerable<FilterDto>> GetAllFiltersAsync()
+        private readonly IFilterRepository filterRepository;
+        private readonly IMapper mapper;
+
+        public FilterService(IFilterRepository filterRepository, IMapper mapper)
         {
-            return new List<FilterDto>
-            {
-                new FilterDto
-                {
-                    Id = 0,
-                    Name = "Type",
-                    PossibleValues = new List<FilterValueDto>
-                    {
-                        new FilterValueDto { Id = 0, Name = "Computer" },
-                        new FilterValueDto { Id = 1, Name = "Lecture hall" },
-                    },
-                },
-                new FilterDto
-                {
-                    Id = 1,
-                    Name = "Size",
-                    PossibleValues = new List<FilterValueDto>
-                    {
-                        new FilterValueDto { Id = 2, Name = "Small" },
-                        new FilterValueDto { Id = 3, Name = "Medium" },
-                        new FilterValueDto { Id = 4, Name = "Big" },
-                    },
-                },
-            };
+            this.filterRepository = filterRepository;
+            this.mapper = mapper;
+        }
+
+        public async Task<IEnumerable<FilterDto>> GetAllWithDetailsAsync()
+        {
+            var entities = await filterRepository.FindAllWithDetailsAsync();
+            return mapper.Map<IEnumerable<FilterDto>>(entities);
         }
     }
 }

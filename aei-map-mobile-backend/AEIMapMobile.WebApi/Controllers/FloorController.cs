@@ -24,7 +24,7 @@ namespace AEIMapMobile.WebApi.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(FloorDto))]
         public async Task<IActionResult> GetFloorByIdAsync(int id)
         {
-            var result = await floorService.GetFloorByIdAsync(id);
+            var result = await floorService.GetByIdWithDetailsAsync(id);
             return Ok(result);
         }
 
@@ -32,7 +32,7 @@ namespace AEIMapMobile.WebApi.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<AreaDto>))]
         public async Task<IActionResult> GetFloorIdsAndNumbersAsync()
         {
-            var result = await floorService.GetAllFloorIdsAndNumbersAsync();
+            var result = await floorService.GetAllAsync();
             return Ok(result);
         }
     }

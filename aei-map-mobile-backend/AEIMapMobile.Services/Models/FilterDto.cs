@@ -10,6 +10,6 @@ namespace AEIMapMobile.Services.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<FilterValueDto> PossibleValues { get; set; }
+        public IEnumerable<FilterValueDto> PossibleValues { get; set; }
     }
 }

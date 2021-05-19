@@ -8,7 +8,6 @@ namespace AEIMapMobile.Services.Models
 {
     public class FloorDto : AreaDto
     {
-        public List<RoomDto> Rooms { get; set; }
-        public List<PointDto> Path { get; set; }
+        public IEnumerable<RoomDto> Rooms { get; set; }
     }
 }

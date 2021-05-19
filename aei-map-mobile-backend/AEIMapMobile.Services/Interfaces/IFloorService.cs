@@ -9,7 +9,7 @@ namespace AEIMapMobile.Services.Interfaces
 {
     public interface IFloorService
     {
-        public Task<FloorDto> GetFloorByIdAsync(int id);
-        public Task<IEnumerable<AreaDto>> GetAllFloorIdsAndNumbersAsync();
+        public Task<FloorDto> GetByIdWithDetailsAsync(int id);
+        public Task<IEnumerable<AreaDto>> GetAllAsync();
     }
 }

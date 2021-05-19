@@ -9,6 +9,6 @@ namespace AEIMapMobile.Services.Interfaces
 {
     public interface IFilterService
     {
-        public Task<IEnumerable<FilterDto>> GetAllFiltersAsync();
+        public Task<IEnumerable<FilterDto>> GetAllWithDetailsAsync();
     }
 }

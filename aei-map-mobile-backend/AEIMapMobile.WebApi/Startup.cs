@@ -1,8 +1,10 @@
+using AEIMapMobile.Services;
 using AEIMapMobile.Services.Interfaces;
 using AEIMapMobile.Services.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
@@ -16,8 +18,13 @@ namespace AEIMapMobile.WebApi
 {
     public class Startup
     {
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
+        public IConfiguration Configuration { get; }
+
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
@@ -25,32 +32,17 @@ namespace AEIMapMobile.WebApi
             // For Swagger  
             services.AddSwaggerGen(options =>
             {
-                options.SwaggerDoc("v1", new OpenApiInfo { Title = "Protected API", Version = "v1" });
-
-                // we're going to be adding more here...
-
-                options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
-                {
-                    Description = "Authorization header using the Bearer scheme",
-                    Name = "Authorization",
-                    In = ParameterLocation.Header,
-                    Type = SecuritySchemeType.ApiKey
-                });
-
-                options.OperationFilter<SecurityRequirementsOperationFilter>();
+                options.SwaggerDoc("v1", new OpenApiInfo { Title = "Unprotected API", Version = "v1" });
             });
-
-            //services
-            services.AddScoped<IFloorService, FloorService>()
-                .AddScoped<IRoomTypeService, RoomTypeService>()
-                .AddScoped<IFilterService, FilterService>()
-                .AddScoped<IFilteredRoomService, FilteredRoomService>();
 
             // HttpContextAccessor
             services.AddHttpContextAccessor();
 
             // CORS
             services.AddCors();
+
+            //services
+            services.AddServices(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -67,7 +59,7 @@ namespace AEIMapMobile.WebApi
 
             app.UseSwaggerUI(options =>
             {
-                options.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "AEI Map API V1");
             });
 
             if (env.IsDevelopment())

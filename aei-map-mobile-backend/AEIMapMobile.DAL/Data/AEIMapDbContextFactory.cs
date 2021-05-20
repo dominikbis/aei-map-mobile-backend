@@ -13,7 +13,7 @@ namespace AEIMapMobile.DAL.Data
         public AEIMapDbContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<AEIMapDbContext>();
-            optionsBuilder.UseSqlServer("Server=tcp:aeimap.database.windows.net,1433;Initial Catalog=aeimap;Persist Security Info=False;User ID=admin_aei;Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            optionsBuilder.UseSqlServer("Server=tcp:aeimap.database.windows.net,1433;Initial Catalog=aeimap;Persist Security Info=False;User ID=admin_aei;Password=mapserver123!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             return new AEIMapDbContext(optionsBuilder.Options);
         }
     }

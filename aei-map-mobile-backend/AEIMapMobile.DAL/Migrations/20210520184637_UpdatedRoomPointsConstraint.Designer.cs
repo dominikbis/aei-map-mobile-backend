@@ -3,14 +3,16 @@ using AEIMapMobile.DAL.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AEIMapMobile.DAL.Migrations
 {
     [DbContext(typeof(AEIMapDbContext))]
-    partial class AEIMapDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210520184637_UpdatedRoomPointsConstraint")]
+    partial class UpdatedRoomPointsConstraint
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

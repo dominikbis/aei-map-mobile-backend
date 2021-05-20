@@ -18,6 +18,7 @@ namespace AEIMapMobile.DAL.Entities
         [Required]
         public int Order { get; set; }
         [Required, DefaultValue(false)]
+        public int RoomId { get; set; }
         public Room Room { get; set; }
     }
 }

@@ -17,7 +17,7 @@ namespace AEIMapMobile.DAL.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<RoomPoint>().HasIndex(rp => rp.Order).IsUnique();
+            builder.Entity<RoomPoint>().HasIndex(rp => new { rp.Order, rp.RoomId }).IsUnique(true);
         }
 
         public DbSet<Floor> Floors { get; set; }

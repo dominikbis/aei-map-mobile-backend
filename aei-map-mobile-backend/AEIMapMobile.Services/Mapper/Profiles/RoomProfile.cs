@@ -15,6 +15,8 @@ namespace AEIMapMobile.Services.Mapper.Profiles
         {
             CreateMap<Room, RoomDto>()
                 .ForMember(dest => dest.FilterValueIds, opts => opts.MapFrom(src => src.FilterValues.Select(e => e.Id)));
+
+            CreateMap<Room, AreaDto>();
         }
     }
 }

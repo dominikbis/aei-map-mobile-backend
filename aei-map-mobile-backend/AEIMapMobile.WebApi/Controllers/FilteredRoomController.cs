@@ -21,9 +21,9 @@ namespace aei_map_mobile_backend.Controllers
 
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<AreaDto>))]
-        public async Task<IActionResult> GetFilteredRoomsAsync(int[] filterIds)
+        public async Task<IActionResult> GetFilteredRoomsAsync([FromBody] FilteredRoomsRequestDto request)
         {
-            var result = await filteredRoomService.GetFilteredRoomsAsync(filterIds);
+            var result = await filteredRoomService.GetFilteredRoomsAsync(request);
             return Ok(result);
         }
     }

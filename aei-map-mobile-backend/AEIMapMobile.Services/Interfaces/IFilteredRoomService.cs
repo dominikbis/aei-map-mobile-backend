@@ -9,6 +9,6 @@ namespace AEIMapMobile.Services.Interfaces
 {
     public interface IFilteredRoomService
     {
-        public Task<IEnumerable<AreaDto>> GetFilteredRoomsAsync(IEnumerable<int> filterIds);
+        public Task<IEnumerable<AreaDto>> GetFilteredRoomsAsync(FilteredRoomsRequestDto request);
     }
 }

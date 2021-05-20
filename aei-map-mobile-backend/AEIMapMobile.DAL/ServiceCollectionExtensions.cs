@@ -20,6 +20,7 @@ namespace AEIMapMobile.DAL
                 // Repositories
                 .AddScoped<IFloorRepository, FloorRepository>()
                 .AddScoped<IFilterRepository, FilterRepository>()
+                .AddScoped<IRoomRepository, RoomRepository>()
 
                 // Databases
                 .AddDbContext<AEIMapDbContext>(options =>

@@ -24,6 +24,7 @@ namespace AEIMapMobile.Services
                 .AddScoped<IFloorService, FloorService>()
                 .AddScoped<IFilterService, FilterService>()
                 .AddScoped<IFilteredRoomService, FilteredRoomService>()
+                .AddScoped<IPathService, PathService>()
 
                 // AutoMapper
                 .AddSingleton<AutoMapper.IConfigurationProvider, AutoMapperConfiguration>(p => new AutoMapperConfiguration(p.GetServices<Profile>()))

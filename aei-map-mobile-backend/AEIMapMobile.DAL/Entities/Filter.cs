@@ -11,8 +11,10 @@ namespace AEIMapMobile.DAL.Entities
     {
         [Key]
         public int Id { get; set; }
+
         [Required]
         public string Name { get; set; }
+
         public IEnumerable<FilterValue> FilterValues { get; set; }
     }
 }

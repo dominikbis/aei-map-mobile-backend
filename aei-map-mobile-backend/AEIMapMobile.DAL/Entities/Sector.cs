@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -8,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AEIMapMobile.DAL.Entities
 {
-    public class FilterValue
+    public class Sector
     {
         [Key]
         public int Id { get; set; }
@@ -16,10 +15,7 @@ namespace AEIMapMobile.DAL.Entities
         [Required]
         public string Name { get; set; }
 
-        [Required, DefaultValue(false)]
-        public int FilterId { get; set; }
-        public Filter Filter { get; set; }
-
-        public ICollection<Room> Rooms { get; set; }
+        public ICollection<FloorSectorConnection> Sector1Connections { get; set; }
+        public ICollection<FloorSectorConnection> Sector2Connections { get; set; }
     }
 }

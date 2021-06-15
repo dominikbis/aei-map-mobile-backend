@@ -10,6 +10,6 @@ namespace AEIMapMobile.DAL.Interfaces
 {
     public interface IRoomRepository : IRepositoryBase<Room>
     {
-        public Task<IEnumerable<Room>> FindRoomsByFloorId(int floorId);
+        public Task<IEnumerable<Room>> FindByFloorIdAsync(int floorId);
     }
 }

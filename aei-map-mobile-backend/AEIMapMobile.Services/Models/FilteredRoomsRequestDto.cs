@@ -8,7 +8,6 @@ namespace AEIMapMobile.Services.Models
 {
     public class FilteredRoomsRequestDto
     {
-        public int FloorId { get; set; }
         public IEnumerable<int> FilterIds { get; set; }
     }
 }

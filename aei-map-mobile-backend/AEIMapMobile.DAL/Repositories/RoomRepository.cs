@@ -18,7 +18,7 @@ namespace AEIMapMobile.DAL.Repositories
 
         }
 
-        public async Task<IEnumerable<Room>> FindRoomsByFloorId(int floorId)
+        public async Task<IEnumerable<Room>> FindByFloorIdAsync(int floorId)
         {
             return await AEIMapDbContext.Set<Room>()
                  .Include(e => e.FilterValues)

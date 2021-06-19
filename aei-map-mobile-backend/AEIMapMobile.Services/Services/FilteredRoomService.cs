@@ -22,7 +22,7 @@ namespace AEIMapMobile.Services.Services
         }
         public async Task<IEnumerable<AreaDto>> GetFilteredRoomsAsync(FilteredRoomsRequestDto request)
         {
-            var entities = await roomRepository.FindAllAsync();
+            var entities = await roomRepository.FindAllWithDetailsAsync();
             entities = entities.Where(e => request.FilterIds.All(id => e.FilterValues.Any(fv => fv.Id == id)));
             return mapper.Map<IEnumerable<AreaDto>>(entities);
         }

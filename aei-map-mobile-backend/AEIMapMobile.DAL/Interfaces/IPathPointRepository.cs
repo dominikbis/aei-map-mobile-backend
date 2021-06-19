@@ -8,9 +8,8 @@ using System.Threading.Tasks;
 
 namespace AEIMapMobile.DAL.Interfaces
 {
-    public interface IFloorRepository : IRepositoryBase<Floor>
+    public interface IPathPointRepository : IRepositoryBase<PathPoint>
     {
-        public Task<Floor> FindByIdWithDetailsAsync(int id);
-        public Task<Floor> FindByNumberWithDetailsAsync(int number);
+        public Task<IEnumerable<PathPoint>> FindByFloorIdAsync(int floorId);
     }
 }

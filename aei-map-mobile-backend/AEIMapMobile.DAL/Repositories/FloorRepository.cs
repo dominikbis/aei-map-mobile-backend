@@ -21,10 +21,21 @@ namespace AEIMapMobile.DAL.Repositories
         public async Task<Floor> FindByIdWithDetailsAsync(int id)
         {
             return await AEIMapDbContext.Set<Floor>()
+                .Include(e => e.SectorConnections)
                 .Include(e => e.Rooms)
                 .Include(e => e.Rooms).ThenInclude(x => x.Points)
                 .Include(e => e.Rooms).ThenInclude(x => x.FilterValues)
                 .FirstOrDefaultAsync(e => e.Id == id);
+        }
+
+        public async Task<Floor> FindByNumberWithDetailsAsync(int number)
+        {
+            return await AEIMapDbContext.Set<Floor>()
+                .Include(e => e.SectorConnections)
+                .Include(e => e.Rooms)
+                .Include(e => e.Rooms).ThenInclude(x => x.Points)
+                .Include(e => e.Rooms).ThenInclude(x => x.FilterValues)
+                .FirstOrDefaultAsync(e => e.Number == number);
         }
     }
 }

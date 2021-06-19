@@ -36,6 +36,7 @@ namespace AEIMapMobile.Services
                 .AddSingleton<Profile, RoomPointProfile>()
                 .AddSingleton<Profile, FilterProfile>()
                 .AddSingleton<Profile, FilterValueProfile>()
+                .AddSingleton<Profile, PathPointProfile>()
 
                 //data access
                 .AddDataAccess(configuration);
